@@ -27,7 +27,6 @@ class PropertyListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupViews()
-        Log.e("ASCT", repository.listProperties().toString())
     }
 
     private fun setupViews() {
@@ -37,5 +36,8 @@ class PropertyListFragment : Fragment() {
         binding.btMap.setOnClickListener {
             findNavController().navigate(R.id.action_propertyListFragment_to_propertyListMapFragment)
         }
+
+        val list = repository.listProperties()
+        binding.rvProperties.adapter = PropertyAdapter(list)
     }
 }

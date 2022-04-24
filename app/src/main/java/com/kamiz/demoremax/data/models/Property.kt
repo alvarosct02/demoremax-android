@@ -9,4 +9,8 @@ data class Property(
     val bathrooms: Int,
     val area: Double,
     val price: Double,
-)
+) {
+    fun formattedPrice(): String {
+        return String.format("S/. %1$,.2f", price);
+    }
+}
