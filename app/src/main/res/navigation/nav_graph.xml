@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/propertyListFragment">
+
+    <fragment
+        android:id="@+id/propertyListMapFragment"
+        android:name="com.kamiz.demoremax.ui.property.map.PropertyListMapFragment"
+        tools:layout="@layout/fragment_property_list_map" />
+    <fragment
+        android:id="@+id/propertyDetailFragment"
+        android:name="com.kamiz.demoremax.ui.property.detail.PropertyDetailFragment"
+        tools:layout="@layout/fragment_property_detail" />
+    <fragment
+        android:id="@+id/propertyListFragment"
+        android:name="com.kamiz.demoremax.ui.property.list.PropertyListFragment"
+        tools:layout="@layout/fragment_property_list">
+        <action
+            android:id="@+id/action_propertyListFragment_to_propertyDetailFragment"
+            app:destination="@id/propertyDetailFragment" />
+        <action
+            android:id="@+id/action_propertyListFragment_to_propertyListMapFragment"
+            app:destination="@id/propertyListMapFragment" />
+    </fragment>
+</navigation>

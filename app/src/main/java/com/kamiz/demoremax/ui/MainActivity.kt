@@ -1,7 +1,8 @@
-package com.kamiz.demoremax
+package com.kamiz.demoremax.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.kamiz.demoremax.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
