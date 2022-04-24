@@ -7,7 +7,8 @@ import com.kamiz.demoremax.data.models.Property
 import com.kamiz.demoremax.databinding.ItemPropertyBinding
 
 class PropertyAdapter(
-    private val objList: List<Property>
+    private val objList: List<Property>,
+    private val onItemClick: (Property) -> Unit
 ) : RecyclerView.Adapter<PropertyAdapter.ViewHolder>() {
 
     class ViewHolder(val binding: ItemPropertyBinding) : RecyclerView.ViewHolder(binding.root)
@@ -22,9 +23,7 @@ class PropertyAdapter(
         val obj = objList[position]
         holder.binding.tvName.text = obj.name
         holder.binding.tvPrice.text = obj.formattedPrice()
-        holder.binding.container.setOnClickListener {
-//            TODO: Open detail view
-        }
+        holder.binding.container.setOnClickListener { onItemClick(obj) }
     }
 
     override fun getItemCount(): Int = objList.size

@@ -30,14 +30,13 @@ class PropertyListFragment : Fragment() {
     }
 
     private fun setupViews() {
-        binding.btDetail.setOnClickListener {
-            findNavController().navigate(R.id.action_propertyListFragment_to_propertyDetailFragment)
-        }
         binding.btMap.setOnClickListener {
             findNavController().navigate(R.id.action_propertyListFragment_to_propertyListMapFragment)
         }
 
         val list = repository.listProperties()
-        binding.rvProperties.adapter = PropertyAdapter(list)
+        binding.rvProperties.adapter = PropertyAdapter(list) {
+            findNavController().navigate(R.id.action_propertyListFragment_to_propertyDetailFragment)
+        }
     }
 }
